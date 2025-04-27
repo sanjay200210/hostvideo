@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Slideshow</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: #fffaf0;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    .slide {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .slide img {
+      max-width: 80vw;
+      max-height: 60vh;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    .slide h1 {
+      font-size: 2em;
+      color: #ff69b4;
+    }
+    .active {
+      display: flex !important;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .fade-in-image {
+      opacity: 0;
+      animation: fadeInImage 2s ease-in forwards;
+    }
+    @keyframes fadeInImage {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .next-button {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: #ff69b4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Slide 1 -->
+<div class="slide active" style="background: url('b4.jpg') no-repeat center center/cover;" >
+  <h1 style="color: #5C4033;" >Happy Birthday To my bestest friend!</h1>
+
+  <video width="400" height="600" controls autoplay loop muted style="margin-top: 20px; border-radius: 15px;">
+    <source src="https://sanjay200210.github.io/hostvideo/clip%20(2).mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide" >
+  <h1>Phewwwwwwwwww!</h1>
+  <img src="blowcandles.gif" style="margin-top: 20px;">
+</div>
+
+<!-- Slide 3 -->
+<div class="slide"style="background: url('b2.jpg') no-repeat center center/cover;">
+  <h1>Here's Your Gift!</h1>
+  <img src="rabbit.gif" class="fade-in-image" style="margin-top: 20px;">
+  <br>
+  
+</div>
+
+
+<!-- Slide 4 -->
+<div class="slide">
+  <h1>let me have a Peice of cake too!</h1>
+  <img src="cakerac.gif" style="margin-top: 20px;">
+</div>
+
+<!-- Slide 5 -->
+<div class="slide" style="background: url('b1.jpg') no-repeat center center/cover;">
+  <h1>A bit of cake for my friends !</h1>
+  <img src="theif.gif" style="margin-top: 20px width: 400px; height: 400px;">
+</div>
+<button class="next-button">Let's Blow the Candles!</button>
+
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const nextButton = document.querySelector('.next-button');
+let currentSlide = 0;
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[index].classList.add('active');
+
+  if (index === 0) {
+    nextButton.innerText = "Let's Blow the Candles!";
+  } else if (index === 1) {
+    nextButton.innerText = "Here's a Gift!";
+  } else if (index === 2) {
+    nextButton.innerText = "Proceed";
+  }  else if (index === 3) {
+    nextButton.innerText = "Proceed";
+  }	else  {
+    nextButton.innerText = "Restart";
+  }
+}
+
+nextButton.addEventListener('click', function() {
+  currentSlide++;
+  if (currentSlide >= slides.length) {
+    currentSlide = 0;
+  }
+  showSlide(currentSlide);
+});
+</script>
+
+</body>
+</html>
