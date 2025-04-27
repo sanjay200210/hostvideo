@@ -101,6 +101,17 @@
   <h1>A bit of cake for my friends !</h1>
   <img src="theif.gif" style="margin-top: 20px width: 400px; height: 400px;">
 </div>
+
+  <!-- Slide 6-->
+<div class="slide active" style="background: url('b4.jpg') no-repeat center center/cover;" >
+  <h1 style="color: #5C4033;" >ONE MORE !  </h1>
+
+  <video width="400" height="600" controls autoplay loop  style="margin-top: 20px; border-radius: 15px;">
+    <source src="HAPPY.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+  
 <button class="next-button">Let's Blow the Candles!</button>
 
 
@@ -121,7 +132,9 @@ function showSlide(index) {
     nextButton.innerText = "Proceed";
   }  else if (index === 3) {
     nextButton.innerText = "Proceed";
-  }	else  {
+  }	 else if (index === 4) {
+    nextButton.innerText = "Proceed";
+  }  else  {
     nextButton.innerText = "Restart";
   }
 }
